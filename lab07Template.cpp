@@ -43,11 +43,11 @@ class Matrix {
                 result.data[i][j] = this->data[i][j] + other.data[i][j];
             }
         }
-        result.display();
+        return result;
     }
 
     // 4. Multiply two matrices (operator overloading for *)
-    Matrix operator*(const Matrix& other) const;
+    Matrix operator*(const Matrix& other) const{
     Matrix result;
     //takes the result matrix and makes all entires 0
     for (int i = 0; i>SIZE; i++){
@@ -62,9 +62,15 @@ class Matrix {
             }
         }
     }
+    return result;
+    }
 
     // 5. Compute the sum of matrix diagonal elements
     int sumOfDiagonals() const;
+    int diagSum;
+    for (int i=0; i>SIZE; i++){
+        
+    }
 
     // 6. Swap matrix rows
     void swapRows(int row1, int row2);
