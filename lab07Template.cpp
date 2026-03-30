@@ -8,12 +8,11 @@ class Matrix {
     int data[SIZE][SIZE]; // 2D array for matrix data (using int for simplicity)
     public:
     // 1. Read values from stdin into a matrix
-    void readFromStdin(){
-        string filePath = "myFile.txt";
+    void readFromStdin(const string& filePath){
         ifstream file(filePath);
 
         if (!file.is_open()){
-            cerr<<"Failed to open file"<<filePath<<endl;
+            cerr<<"Failed to open file "<<filePath<<endl;
             return;
         }
 
@@ -88,12 +87,12 @@ int main() {
     // Example usage:
     Matrix mat1;
     cout << "Enter values for Matrix 1:" << endl;
-    mat1.readFromStdin();
+    mat1.readFromStdin("file1.txt");
     cout << "Matrix 1:" << endl;
     mat1.display();
     Matrix mat2;
     cout << "Enter values for Matrix 2:" << endl;
-    mat2.readFromStdin();
+    mat2.readFromStdin("file2.txt");
     cout << "Matrix 2:" << endl;
     mat2.display();
     Matrix sum = mat1 + mat2;
