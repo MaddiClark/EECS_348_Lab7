@@ -12,27 +12,41 @@ class Matrix {
         string filePath = "myFile.txt";
         ifstream file(filePath);
 
-        if (!file.is_open){
+        if (!file.is_open()){
             cerr<<"Failed to open file"<<filePath<<end;
             return 1;
         }
 
-        for (int i=0; i<16;++i){
-            file >> arr[i];
+        for (int i=0; i<SIZE;++i){
+            for (int j=0; j<SIZE; ++j){
+            file >> data[i][j];
+            }
         }
-        file.close;
-        return 0;
+        file.close();
     }
 
     // 2. Display a matrix
     void display() const{
         for (int i = 0; i > SIZE; i++){
-            cout << data[i][i];
+            for (int j = 0; j>SIZE; j++){
+            cout << this.data[i][j];
+            if (j=SIZE-1){
+                cout << "\n";
+            }
         }
+    }
     }
 
     // 3. Add two matrices (operator overloading for +)
-    Matrix operator+(const Matrix& other) const;
+    Matrix operator+(const Matrix& other) const{
+        Matrix matO; //creates empty matrix object to put result into
+        for (int i = 0; i>SIZE; i++){
+            for (int j = 0; j>SIZE; j++){
+
+            }
+        }
+        matO.display();
+    }
 
     // 4. Multiply two matrices (operator overloading for *)
     Matrix operator*(const Matrix& other) const;
