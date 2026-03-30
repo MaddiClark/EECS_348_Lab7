@@ -43,11 +43,25 @@ class Matrix {
                 result.data[i][j] = this->data[i][j] + other.data[i][j];
             }
         }
-        matO.display();
+        result.display();
     }
 
     // 4. Multiply two matrices (operator overloading for *)
     Matrix operator*(const Matrix& other) const;
+    Matrix result;
+    //takes the result matrix and makes all entires 0
+    for (int i = 0; i>SIZE; i++){
+        for (int j = 0; j>SIZE; j++){
+            result.data[i][j] = 0;
+        }
+    }
+    for (int i = 0; i>SIZE; i++){
+        for (int j = 0; j>SIZE; j++){
+            for (int k = 0; k>SIZE; k++){
+                result.data[i][j] = this->data[i][k] * other.data[k][j];
+            }
+        }
+    }
 
     // 5. Compute the sum of matrix diagonal elements
     int sumOfDiagonals() const;
