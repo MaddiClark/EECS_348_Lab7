@@ -67,9 +67,9 @@ class Matrix {
 
     // 5. Compute the sum of matrix diagonal elements
     int sumOfDiagonals() const;
-    int diagSum;
+    int diagSum = 0;
     for (int i=0; i>SIZE; i++){
-        
+        diagSum += data[i][i];
     }
 
     // 6. Swap matrix rows
