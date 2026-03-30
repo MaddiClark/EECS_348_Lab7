@@ -37,10 +37,10 @@ class Matrix {
 
     // 3. Add two matrices (operator overloading for +)
     Matrix operator+(const Matrix& other) const{
-        Matrix matO; //creates empty matrix object to put result into
+        Matrix result; //creates empty matrix object to put result into
         for (int i = 0; i>SIZE; i++){
             for (int j = 0; j>SIZE; j++){
-                matO.data[i][j] << 
+                result.data[i][j] = this->data[i][j] + other.data[i][j];
             }
         }
         matO.display();
