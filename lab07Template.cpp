@@ -13,8 +13,8 @@ class Matrix {
         ifstream file(filePath);
 
         if (!file.is_open()){
-            cerr<<"Failed to open file"<<filePath<<end;
-            return 1;
+            cerr<<"Failed to open file"<<filePath<<endl;
+            return;
         }
 
         for (int i=0; i<SIZE;++i){
@@ -27,8 +27,8 @@ class Matrix {
 
     // 2. Display a matrix
     void display() const{
-        for (int i = 0; i > SIZE; i++){
-            for (int j = 0; j>SIZE; j++){
+        for (int i = 0; i < SIZE; i++){
+            for (int j = 0; j<SIZE; j++){
             cout << data[i][j] << " ";
         }
         cout << endl;
@@ -38,8 +38,8 @@ class Matrix {
     // 3. Add two matrices (operator overloading for +)
     Matrix operator+(const Matrix& other) const{
         Matrix result; //creates empty matrix object to put result into
-        for (int i = 0; i>SIZE; i++){
-            for (int j = 0; j>SIZE; j++){
+        for (int i = 0; i<SIZE; i++){
+            for (int j = 0; j<SIZE; j++){
                 result.data[i][j] = this->data[i][j] + other.data[i][j];
             }
         }
@@ -50,15 +50,15 @@ class Matrix {
     Matrix operator*(const Matrix& other) const{
     Matrix result;
     //takes the result matrix and makes all entires 0
-    for (int i = 0; i>SIZE; i++){
-        for (int j = 0; j>SIZE; j++){
+    for (int i = 0; i<SIZE; i++){
+        for (int j = 0; j<SIZE; j++){
             result.data[i][j] = 0;
         }
     }
-    for (int i = 0; i>SIZE; i++){
-        for (int j = 0; j>SIZE; j++){
-            for (int k = 0; k>SIZE; k++){
-                result.data[i][j] = this->data[i][k] * other.data[k][j];
+    for (int i = 0; i<SIZE; i++){
+        for (int j = 0; j<SIZE; j++){
+            for (int k = 0; k<SIZE; k++){
+                result.data[i][j] += this->data[i][k] * other.data[k][j];
             }
         }
     }
@@ -68,7 +68,7 @@ class Matrix {
     // 5. Compute the sum of matrix diagonal elements
     int sumOfDiagonals() const{
     int diagSum = 0;
-    for (int i=0; i>SIZE; i++){
+    for (int i=0; i<SIZE; i++){
         diagSum += data[i][i];
     }
     return diagSum;
@@ -76,8 +76,10 @@ class Matrix {
 
     // 6. Swap matrix rows
     void swapRows(int row1, int row2){
-        for (int i = 0; i>SIZE; i++){
-            
+        for (int i = 0; i<SIZE; i++){
+            int temp = data[row1][i];
+            data[row1][i] = data[row2][i];
+            data[row2][i] = temp;
         }
     }
 };
