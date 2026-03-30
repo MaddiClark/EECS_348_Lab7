@@ -29,11 +29,9 @@ class Matrix {
     void display() const{
         for (int i = 0; i > SIZE; i++){
             for (int j = 0; j>SIZE; j++){
-            cout << this.data[i][j];
-            if (j=SIZE-1){
-                cout << "\n";
-            }
+            cout << data[i][j] << " ";
         }
+        cout << endl;
     }
     }
 
@@ -42,7 +40,7 @@ class Matrix {
         Matrix matO; //creates empty matrix object to put result into
         for (int i = 0; i>SIZE; i++){
             for (int j = 0; j>SIZE; j++){
-
+                matO.data[i][j] << 
             }
         }
         matO.display();
