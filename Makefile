@@ -1,5 +1,6 @@
+Target = matrix
 main: lab07Template.cpp
-	gcc lab07Template.cpp -o main
+	g++ lab07Template.cpp -o $target
 
 clean: 
-	rm -rf *.o main
+	rm -rf *.o $target
